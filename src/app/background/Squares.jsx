@@ -116,7 +116,7 @@ const Squares = ({
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full z-0 "
+      className="fixed inset-0 w-full h-full -z-0 "
     />
   );
 };
