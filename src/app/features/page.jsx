@@ -1,6 +1,7 @@
 'use client';
 
 import { GraduationCap, BookOpen, User, Landmark, Shield, Bell, LineChart, Layers } from "lucide-react";
+import CallToAction from "../../components/CallToAction";
 
 const features = [
     {
@@ -103,7 +104,7 @@ const FeatureCard = ({ icon: Icon, title, description, items }) => {
             <p className="text-gray-300 mb-4 text-sm">{description}</p>
             <ul className="text-gray-200 space-y-2">
                 {items.map((item, idx) => (
-                    <li key={idx} className="border-b border-gray-500/30 pb-2 last:border-none">
+                    <li key={idx} className="border-b border-gray-500/30 pb-2 last:border-none hover:text-indigo-400">
                         {item}
                     </li>
                 ))}
@@ -116,7 +117,7 @@ const FeaturesPage = () => {
     return (
         <section className="w-[85%] mx-auto py-16 flex flex-col justify-center mt-0 items-center">
             {/* Page Title */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6  text-center z-10">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-8  text-center z-10">
                 Platform Features
             </h1>
             <h2>
@@ -127,11 +128,13 @@ const FeaturesPage = () => {
             </p>
 
             {/* Features Grid */}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-4 justify-center">
                 {features.map((feature, idx) => (
                     <FeatureCard key={idx} {...feature} />
                 ))}
             </div>
+
+            <CallToAction></CallToAction>
         </section>
     );
 };

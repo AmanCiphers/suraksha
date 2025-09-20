@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const AboutPage = () => {
     return (
-        <section className="w-[85%] mx-auto py-16 flex flex-col justify-center items-center text-center">
+        <section className="w-[85%] mx-auto py-16 flex lg:mt-20 flex-col justify-center items-center text-center">
             {/* Page Title */}
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}

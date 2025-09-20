@@ -1,26 +1,27 @@
 'use client';
+import MyButton from './button'
 
 const CallToAction = () => {
     return (
-        <section className="relative w-[80%] mt-20 mx-auto py-16 text-center flex flex-col items-center z-50">
+        <section className="relative w-[80%] lg:mt-40 mt-20 mx-auto py-16 text-center flex flex-col items-center z-50">
             <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
-                Ready to Get Started?
+                Ready to Get <span className='text-indigo-600 text-stroke'>Started</span>?
             </h2>
             <p className="text-gray-300 max-w-2xl mb-10">
-                Join Suraksha Siksha today to explore interactive safety learning,
+                Join <span className='text-indigo-600'>Suraksha Siksha</span> today to explore interactive safety learning,
                 manage drills, and make institutions more resilient.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-6 py-3 rounded-xl bg-white text-black font-semibold shadow-md hover:bg-gray-200 transition">
+            <div className="flex flex-row sm:flex-row gap-4">
+                <MyButton className="" name='Login'>
                     Login
-                </button>
-                <button className="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow-md hover:bg-indigo-700 transition">
+                </MyButton>
+                <MyButton className="" name='SignUp'>
                     Sign Up
-                </button>
-                <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold shadow-md hover:from-indigo-600 hover:to-purple-700 transition">
+                </MyButton>
+                <MyButton className="" name='Home'>
                     Get Started
-                </button>
+                </MyButton>
             </div>
         </section>
     );

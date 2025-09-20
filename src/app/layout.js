@@ -16,7 +16,9 @@ export default function RootLayout({ children }) {
         <Background />
 
         {/* Navbar always at top */}
-        <Navbar />
+        <div className="z-50">
+          <Navbar />
+        </div>
 
         {/* Main page content */}
         <main className="pt-16 pb-20">{children}</main>
