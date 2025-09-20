@@ -110,7 +110,7 @@ const items = [
           <button
             key={s.id}
             onClick={() => handleScroll(s.id)}
-            className={`text-sm font-medium transition ${
+            className={`text-sm font-medium transition cursor-pointer ${
               active === s.id
                 ? "text-white"
                 : "text-gray-600 hover:text-blue-500"
