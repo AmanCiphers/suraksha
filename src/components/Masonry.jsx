@@ -2,19 +2,30 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 
+// -------- SSR-safe useMedia hook --------
 const useMedia = (queries, values, defaultValue) => {
-  const get = () => values[queries.findIndex(q => matchMedia(q).matches)] ?? defaultValue;
-  const [value, setValue] = useState(get);
+  const [value, setValue] = useState(defaultValue);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return; // only run on client
+
+    const get = () =>
+      values[queries.findIndex(q => window.matchMedia(q).matches)] ?? defaultValue;
+
+    setValue(get);
+
     const handler = () => setValue(get);
-    queries.forEach(q => matchMedia(q).addEventListener('change', handler));
-    return () => queries.forEach(q => matchMedia(q).removeEventListener('change', handler));
-  }, [queries]);
+
+    const mqls = queries.map(q => window.matchMedia(q));
+    mqls.forEach(mql => mql.addEventListener('change', handler));
+
+    return () => mqls.forEach(mql => mql.removeEventListener('change', handler));
+  }, [queries, values, defaultValue]);
 
   return value;
 };
 
+// -------- useMeasure hook --------
 const useMeasure = () => {
   const ref = useRef(null);
   const [size, setSize] = useState({ width: 0, height: 0 });
@@ -32,6 +43,7 @@ const useMeasure = () => {
   return [ref, size];
 };
 
+// -------- Preload images --------
 const preloadImages = async urls => {
   await Promise.all(
     urls.map(src =>
@@ -44,8 +56,9 @@ const preloadImages = async urls => {
   );
 };
 
+// -------- Masonry component --------
 const Masonry = ({
-  items = [], // default to empty array
+  items = [],
   ease = 'power3.out',
   duration = 0.6,
   stagger = 0.05,
@@ -66,6 +79,8 @@ const Masonry = ({
   const [containerHeight, setContainerHeight] = useState(0);
 
   const getInitialPosition = item => {
+    if (typeof window === 'undefined') return { x: item.x, y: item.y }; // SSR-safe
+
     const containerRect = containerRef.current?.getBoundingClientRect();
     if (!containerRect) return { x: item.x, y: item.y };
 
@@ -95,7 +110,7 @@ const Masonry = ({
   };
 
   useEffect(() => {
-    if (!items.length) return;
+    if (!items.length || typeof window === 'undefined') return;
     preloadImages(items.map(i => i.img)).then(() => setImagesReady(true));
   }, [items]);
 
@@ -109,7 +124,7 @@ const Masonry = ({
     const positioned = items.map(child => {
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = col * (columnWidth + gap);
-      const height = child.height / 2; // NOTE: check your height logic
+      const height = child.height / 2; // adjust as needed
       const y = colHeights[col];
 
       colHeights[col] += height + gap;
@@ -123,7 +138,7 @@ const Masonry = ({
   const hasMounted = useRef(false);
 
   useLayoutEffect(() => {
-    if (!imagesReady) return;
+    if (!imagesReady || typeof window === 'undefined') return;
 
     grid.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
@@ -203,7 +218,7 @@ const Masonry = ({
           data-key={item.id}
           className="absolute box-content"
           style={{ willChange: 'transform, width, height, opacity' }}
-          onClick={() => window.open(item.url, '_blank', 'noopener')}
+          onClick={() => typeof window !== 'undefined' && window.open(item.url, '_blank', 'noopener')}
           onMouseEnter={e => handleMouseEnter(item.id, e.currentTarget)}
           onMouseLeave={e => handleMouseLeave(item.id, e.currentTarget)}
         >
