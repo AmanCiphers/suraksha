@@ -101,7 +101,7 @@ const Card = ({ icon: Icon, title, items, delay }) => {
 
 const RoleCards = () => {
     return (
-        <section className="w-[85%] mx-auto mt-40 py-12 flex flex-col justify-center items-center">
+        <section className="w-[85%] mx-auto mt-60 py-12 flex flex-col justify-center items-center">
             {/* Heading — restored and visible */}
             <motion.h1
                 initial={{ opacity: 0, y: -18 }}

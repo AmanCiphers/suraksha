@@ -9,7 +9,6 @@ const NavBar = () => {
 
     const handleLanguageChange = (e) => {
         setLanguage(e.target.value);
-        // later: hook it up to i18n or your translation system
     };
 
     return (
@@ -22,6 +21,7 @@ const NavBar = () => {
                 {/* Desktop Menu */}
                 <ul className="hidden sm:flex gap-6 text-sm font-medium items-center">
                     <Link href='/'><li className="cursor-pointer hover:text-gray-300">Home</li></Link>
+                    <Link href='/dashboard'><li className="cursor-pointer hover:text-gray-300">Dashboard</li></Link>
                     <Link href='/about'><li className="cursor-pointer hover:text-gray-300">About</li></Link>
                     <Link href='/features'><li className="cursor-pointer hover:text-gray-300">Features</li></Link>
                     <li>
