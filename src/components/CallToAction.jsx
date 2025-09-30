@@ -8,7 +8,7 @@ const CallToAction = () => {
                 Ready to <span className='text-indigo-600 text-stroke'>Access Your Health Passbook</span>?
             </h2>
             <p className="text-gray-300 max-w-2xl mb-10">
-                Join the <span className='text-indigo-600'>Migrant Health Passbook</span> platform today to securely manage
+                Join the <span className='text-indigo-600'>ArogyaSeva</span> platform today to securely manage
                 your health records, connect with doctors, and ensure continuity of care anywhere.
             </p>
 
