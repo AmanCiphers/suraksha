@@ -123,9 +123,9 @@ const items = [
 
       {/* Sections */}
       <div id="hero" className="scroll-mt-90"><Hero /></div>
-      <div id="roles" className="scroll-mt-40"><RoleCards /></div>
-      <div id="masonry" className="scroll-mt-50"><Masonry items={items} /></div>
-      <div id="cta" className="scroll-mt-20"><CallToAction /></div>
+      <div id="roles" className="scroll-mt-60"><RoleCards /></div>
+      <div id="masonry" className="scroll-mt-30"><Masonry items={items} /></div>
+      <div id="cta" className="scroll-mt-10"><CallToAction /></div>
     </div>
   );
 }

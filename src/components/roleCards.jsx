@@ -1,32 +1,32 @@
 "use client";
-import { GraduationCap, User, Landmark, BookOpen } from "lucide-react";
+import { User, Stethoscope, Building2, Landmark } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 const features = {
-    student: [
-        "Interactive Learning Modules",
-        "Virtual Drills & Simulations",
-        "Regional Awareness Content",
-        "Progress Tracking & Badges",
+    worker: [
+        "Secure digital health passbook",
+        "Access to personal medical history",
+        "Works offline with sync later",
+        "Multi-language support",
     ],
-    teacher: [
-        "Class & Drill Management",
-        "Student Progress Monitoring",
-        "Teaching Resources Library",
-        "Custom Drill Creation",
+    doctor: [
+        "View patient history instantly",
+        "Update treatments & prescriptions",
+        "Upload medical reports",
+        "Issue health certificates",
     ],
-    admin: [
-        "School-wide Overview",
-        "User Management",
-        "Analytics & Reports",
-        "Institution Safety Planning",
+    employer: [
+        "Verify worker’s health records",
+        "Track medical checkups",
+        "Compliance reporting",
+        "Onboarding with verified data",
     ],
     government: [
-        "Multi-school Monitoring",
-        "Policy Management",
-        "Emergency Alert System",
-        "Regional Analytics",
+        "Centralized monitoring",
+        "Analytics & reporting",
+        "Policy implementation",
+        "Emergency alerts & health campaigns",
     ],
 };
 
@@ -47,11 +47,11 @@ const cardVariant = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.32, ease: "easeOut" }, // quicker entrance
+        transition: { duration: 0.32, ease: "easeOut" },
     },
 };
 
-const Card = ({ icon: Icon, title, items, delay }) => {
+const Card = ({ icon: Icon, title, items }) => {
     return (
         <motion.article
             variants={cardVariant}
@@ -60,7 +60,7 @@ const Card = ({ icon: Icon, title, items, delay }) => {
             role="button"
             whileHover={{ scale: 1.03, y: -6 }}
             whileFocus={{ scale: 1.03, y: -6 }}
-            transition={{ type: "spring", stiffness: 300, damping: 22 }} // snappy spring
+            transition={{ type: "spring", stiffness: 300, damping: 22 }}
             aria-label={title}
         >
             <div
@@ -87,12 +87,14 @@ const Card = ({ icon: Icon, title, items, delay }) => {
 
                 {/* optional CTA inside card */}
                 <div className="mt-4">
-                    <Link href='/features'><button
-                        className="px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600/90 text-white
+                    <Link href='/features'>
+                        <button
+                            className="px-4 py-2 rounded-lg text-sm font-medium bg-indigo-600/90 text-white
                        hover:bg-indigo-700 cursor-pointer transition-colors duration-150"
-                    >
-                        Explore
-                    </button></Link>
+                        >
+                            Explore
+                        </button>
+                    </Link>
                 </div>
             </div>
         </motion.article>
@@ -101,8 +103,8 @@ const Card = ({ icon: Icon, title, items, delay }) => {
 
 const RoleCards = () => {
     return (
-        <section className="w-[85%] mx-auto mt-60  py-12 flex flex-col justify-center  items-center">
-            {/* Heading — restored and visible */}
+        <section className="w-[85%] mx-auto mt-60 py-12 flex flex-col justify-center items-center">
+            {/* Heading */}
             <motion.h1
                 initial={{ opacity: 0, y: -18 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -119,9 +121,9 @@ const RoleCards = () => {
                 animate="visible"
                 className="grid gap-6 mt-6 sm:grid-cols-2 lg:grid-cols-4 justify-items-center w-full"
             >
-                <Card icon={GraduationCap} title="Student Section" items={features.student} />
-                <Card icon={BookOpen} title="Teacher Section" items={features.teacher} />
-                <Card icon={User} title="Administrator" items={features.admin} />
+                <Card icon={User} title="Worker" items={features.worker} />
+                <Card icon={Stethoscope} title="Doctor" items={features.doctor} />
+                <Card icon={Building2} title="Employer" items={features.employer} />
                 <Card icon={Landmark} title="Government" items={features.government} />
             </motion.div>
         </section>

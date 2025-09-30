@@ -10,6 +10,10 @@ h1,h2,h3,p{
     z-index: 10;
 }
 
+.top{
+    z-index: 99;
+}
+
 .text-stroke {
     -webkit-text-stroke: 1px white;
     /* stroke width + color */

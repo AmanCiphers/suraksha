@@ -1,95 +1,95 @@
-'use client';
+"use client";
 
-import { GraduationCap, BookOpen, User, Landmark, Shield, Bell, LineChart, Layers } from "lucide-react";
+import { User, Stethoscope, Building2, Landmark, Shield, Bell, LineChart, Smartphone } from "lucide-react";
 import CallToAction from "../../components/CallToAction";
 
 const features = [
     {
-        icon: GraduationCap,
-        title: "Student Features",
-        description: "Empowering students with interactive and immersive safety learning.",
-        items: [
-            "Interactive Learning Modules with quizzes and tasks",
-            "Virtual Drills & Simulations for real-world practice",
-            "Regional Awareness Content tailored to your area",
-            "Progress Tracking, Badges & Certificates",
-        ],
-    },
-    {
-        icon: BookOpen,
-        title: "Teacher Tools",
-        description: "Helping teachers manage, track, and train students efficiently.",
-        items: [
-            "Class & Drill Management dashboards",
-            "Student Progress Monitoring",
-            "Comprehensive Teaching Resources Library",
-            "Custom Drill Creation with templates",
-        ],
-    },
-    {
         icon: User,
-        title: "Administrator Features",
-        description: "Complete control for administrators to oversee safety readiness.",
+        title: "Worker Features",
+        description: "Health record access for migrant workers anytime, anywhere.",
         items: [
-            "School-wide Overview dashboards",
-            "User Management & Permissions",
-            "Detailed Analytics & Reports",
-            "Institution Safety Planning",
+            "Digital Health Passbook",
+            "Offline Access & Sync Later",
+            "Multi-language Support",
+            "Personal Medical History Tracking",
+        ],
+    },
+    {
+        icon: Stethoscope,
+        title: "Doctor Tools",
+        description: "Enable healthcare professionals to deliver better care.",
+        items: [
+            "Instant Patient History View",
+            "Update Treatments & Prescriptions",
+            "Upload Lab Reports",
+            "Issue Health Certificates",
+        ],
+    },
+    {
+        icon: Building2,
+        title: "Employer Features",
+        description: "Simplify worker onboarding and compliance management.",
+        items: [
+            "Verify Worker Health Records",
+            "Track Checkups & Fitness Certificates",
+            "Generate Compliance Reports",
+            "Health Status Dashboard",
         ],
     },
     {
         icon: Landmark,
         title: "Government Features",
-        description: "Tools for policymakers to manage safety across institutions.",
+        description: "Centralized monitoring and policy implementation.",
         items: [
-            "Multi-school Monitoring in real-time",
-            "Policy Management and compliance checks",
-            "Emergency Alert System integrations",
-            "Regional Analytics & Reports",
+            "Multi-region Health Monitoring",
+            "Emergency Alerts & Campaigns",
+            "Analytics & Reporting",
+            "Policy Enforcement Tools",
         ],
     },
     {
         icon: Shield,
         title: "Security & Privacy",
-        description: "Your data stays safe and protected at all times.",
+        description: "Data protection and compliance as top priorities.",
         items: [
-            "End-to-End Encrypted Communication",
+            "End-to-End Encryption",
             "Role-based Access Control",
-            "GDPR & Data Compliance",
+            "Data Anonymization",
             "Regular Security Audits",
         ],
     },
     {
         icon: Bell,
-        title: "Emergency Readiness",
-        description: "Fast and effective communication in critical moments.",
+        title: "Alerts & Notifications",
+        description: "Timely communication in emergencies and updates.",
         items: [
-            "One-Click Emergency Alerts",
-            "Automated Notifications to Students & Staff",
+            "One-Click Emergency Notifications",
+            "Vaccination & Health Reminders",
+            "Push & SMS Alerts",
             "Integrated Helpline Numbers",
-            "Crisis Response Workflows",
         ],
     },
     {
         icon: LineChart,
         title: "Analytics & Insights",
-        description: "Make data-driven decisions with smart insights.",
+        description: "Smarter decisions with aggregated health data.",
         items: [
-            "Drill Participation Analytics",
-            "Regional & National Safety Trends",
-            "Predictive Insights with AI",
-            "Custom Exportable Reports",
+            "Worker Health Trends",
+            "Disease Outbreak Monitoring",
+            "Predictive Insights",
+            "Custom Reports",
         ],
     },
     {
-        icon: Layers,
-        title: "Scalable Infrastructure",
-        description: "Built for small schools to large government institutions.",
+        icon: Smartphone,
+        title: "Accessibility",
+        description: "Easy-to-use design for workers in all regions.",
         items: [
-            "Cloud-based & Always Accessible",
-            "Works on Web & Mobile",
-            "Seamless Multi-language Support",
-            "Future-proof Modular Design",
+            "Simple Mobile-first Interface",
+            "Multi-Device Support",
+            "Works on Low-speed Networks",
+            "Inclusive, User-friendly Design",
         ],
     },
 ];
@@ -104,7 +104,10 @@ const FeatureCard = ({ icon: Icon, title, description, items }) => {
             <p className="text-gray-300 mb-4 text-sm">{description}</p>
             <ul className="text-gray-200 space-y-2">
                 {items.map((item, idx) => (
-                    <li key={idx} className="border-b border-gray-500/30 pb-2 last:border-none hover:text-indigo-400">
+                    <li
+                        key={idx}
+                        className="border-b border-gray-500/30 pb-2 last:border-none hover:text-indigo-400"
+                    >
                         {item}
                     </li>
                 ))}
@@ -117,14 +120,14 @@ const FeaturesPage = () => {
     return (
         <section className="w-[85%] mx-auto py-16 flex flex-col justify-center mt-0 items-center">
             {/* Page Title */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-8  text-center z-10">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-8 text-center z-10">
                 Platform Features
             </h1>
-            <h2>
-                Login to Use the featues
-            </h2>
+            <h2 className="text-lg text-gray-300 mb-4">Login to access features</h2>
             <p className="text-gray-300 max-w-2xl text-center mb-14">
-                Discover the powerful features that make <span className="font-semibold text-indigo-400">Suraksha Siksha</span> the leading platform for safety education, training, and management.
+                Discover the powerful features that make the{" "}
+                <span className="font-semibold text-indigo-400">Migrant Health Passbook</span>{" "}
+                a reliable platform for health records, worker safety, and continuity of care.
             </p>
 
             {/* Features Grid */}
@@ -134,7 +137,7 @@ const FeaturesPage = () => {
                 ))}
             </div>
 
-            <CallToAction></CallToAction>
+            <CallToAction />
         </section>
     );
 };

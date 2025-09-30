@@ -212,6 +212,12 @@ const Masonry = ({
       className="relative w-[80vw] mx-auto mt-40 z-40"
       style={{ height: containerHeight }}
     >
+      <div className="text-center mb-8">
+        <h1 className="text-5xl font-bold">Gallery</h1>
+        <p className="text-gray-500 mt-2">
+          Some heartfull apreciations and reviews from our users
+        </p>
+      </div>
       {grid.map(item => (
         <div
           key={item.id}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const AboutPage = () => {
     return (
-        <section className="w-[85%] mx-auto py-16 flex lg:mt-20 flex-col justify-center items-center text-center">
+        <section className="w-[85%] mx-auto py-16 flex lg:mt-30  lg:mb-30 flex-col justify-center items-center text-center">
             {/* Page Title */}
             <motion.h1
                 initial={{ opacity: 0, y: -20 }}
@@ -12,7 +12,7 @@ const AboutPage = () => {
                 transition={{ duration: 0.8 }}
                 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
             >
-                About Suraksha Siksha
+                About Migrant Health Passbook
             </motion.h1>
 
             {/* Intro Paragraph */}
@@ -22,7 +22,7 @@ const AboutPage = () => {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-gray-300 max-w-4xl m-2 text-center mb-10 text-xl sm:text-xl"
             >
-                <span className="font-semibold text-indigo-400">Suraksha Siksha</span> is a cutting-edge platform designed to enhance safety education and preparedness for students, teachers, administrators, and government bodies. Our goal is to make learning interactive, practical, and accessible for everyone.
+                The <span className="font-semibold text-indigo-400">Migrant Health Passbook</span> is a digital platform designed to ensure that migrant workers have secure, portable, and continuous access to their health records. It bridges the gap between workers, doctors, employers, and government agencies, making healthcare accessible across regions and jobs.
             </motion.p>
 
             {/* Mission & Vision */}
@@ -36,7 +36,7 @@ const AboutPage = () => {
                 >
                     <h2 className="text-2xl font-bold text-white mb-4">Our Mission</h2>
                     <p className="text-gray-300 text-sm sm:text-base">
-                        To empower students and educators with immersive safety learning tools, interactive simulations, and progress tracking for a safer future.
+                        To empower migrant workers by providing them with a secure, portable health record system that ensures continuity of care regardless of location or employer.
                     </p>
                 </motion.div>
 
@@ -49,7 +49,7 @@ const AboutPage = () => {
                 >
                     <h2 className="text-2xl font-bold text-white mb-4">Our Vision</h2>
                     <p className="text-gray-300 text-sm sm:text-base">
-                        To be the leading platform for safety education, ensuring students, teachers, and institutions are prepared, informed, and confident in handling emergencies.
+                        To create a nationwide health ecosystem where every migrant worker’s medical history is securely accessible, improving healthcare delivery, reducing duplication, and enabling data-driven policymaking.
                     </p>
                 </motion.div>
             </div>
@@ -62,7 +62,7 @@ const AboutPage = () => {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="text-gray-300 max-w-2xl text-center mt-12 text-xl"
             >
-                Join us in creating a safer and smarter learning environment for everyone. Explore our platform and experience safety education like never before.
+                Be part of the movement to ensure better healthcare for millions of workers across India. Together, we can make health access seamless, secure, and universal.
             </motion.p>
         </section>
     );
