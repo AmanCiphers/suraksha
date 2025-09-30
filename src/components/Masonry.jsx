@@ -209,7 +209,7 @@ const Masonry = ({
   return (
     <div
       ref={containerRef}
-      className="relative w-[80vw] mx-auto mt-40 z-40"
+      className="relative w-[80vw] mx-auto mt-40 z-10"
       style={{ height: containerHeight }}
     >
       <div className="text-center mb-8">
